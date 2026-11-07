@@ -16,7 +16,8 @@ app.get('/projects.json', (req, res) => {
         const dirs = fs.readdirSync(projectsPath, { withFileTypes: true })
                        .filter(d => d.isDirectory())
                        .map(d => d.name);
-        projectList = dirs.map(name => ({ name, status: 'Deployed' }));
+        // A local directory does not prove a successful deployment.
+        projectList = dirs.map(name => ({ name, status: 'Unknown' }));
     } catch (err) {
         console.error(err);
     }
