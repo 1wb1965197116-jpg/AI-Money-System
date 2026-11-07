@@ -12,7 +12,7 @@ FRONTEND_JSON_PATH = os.path.join(os.path.dirname(__file__), "../../frontend/pro
 
 def update_frontend_json(project_names):
     """Update the frontend dashboard JSON with live project status."""
-    project_list = [{"name": name, "status": "Deployed"} for name in project_names]
+    project_list = [{"name": name, "status": "Unknown"} for name in project_names]
     with open(FRONTEND_JSON_PATH, "w") as f:
         json.dump(project_list, f, indent=2)
 
